@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllDepartamento, nuevoDepartamento, updateDepartamento, EliminarDepartamento } = require('../../models/departamento');
+const { getAllDepartamento, nuevoDepartamento, updateDepartamento, eliminarDepartamento } = require('../../models/departamento');
 
 //Peticion para obtener todos los departamentos
 router.get('/', async (req, res) => {
@@ -37,7 +37,7 @@ router.put('/', async (req, res) => {
 //Eliminar un departamento de la BD
 router.delete('/', async (req, res) => {
     try {
-        const result = await EliminarDepartamento(req.body.id);
+        const result = await eliminarDepartamento(req.body.id);
         res.json({ sucess: 'Departamento Eliminado' })
     } catch (error) {
         res.json({ error: error.message })

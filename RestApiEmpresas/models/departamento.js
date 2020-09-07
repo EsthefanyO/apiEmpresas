@@ -35,7 +35,7 @@ function updateDepartamento({ nombre, ciudad, id }) {
 };
 
 //Metodo para eliminar un departamento
-function EliminarDepartamento(pId) {
+function eliminarDepartamento(pId) {
     return new Promise((resolve, reject) => {
         db.query('DELETE FROM empresas.departamento WHERE id=?',
             [pId],
@@ -46,4 +46,4 @@ function EliminarDepartamento(pId) {
     })
 };
 
-module.exports = { getAllDepartamento, nuevoDepartamento, updateDepartamento, EliminarDepartamento }
+module.exports = { getAllDepartamento, nuevoDepartamento, updateDepartamento, eliminarDepartamento }
