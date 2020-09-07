@@ -4,22 +4,22 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-//CARGAMOS EL CONTENIDO DOTENV
-require('dotenv').config();
 
-//PRUEBA DE CONEXION CON LA BASE DE DATOS EMPRESAS
-const dbConfig = require('./dbConfig');
-require('./dbConfig').connect();
-
-db.query('SELECT * FROM empresas.empleados', (err, rows) => {
-  console.log(rows);
-})
-
+const apiRouter = require('./routes/api');
 
 var app = express();
+
+//PRUEBA DE CONEXION CON LA BASE DE DATOS EMPRESAS
+require('./dbConfig').connect();
+
+/* db.query('SELECT * FROM empresas.empleados', (err, rows) => {
+  console.log(rows);
+}) 
+ */
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+//Ruta Api para peticiones del servidor
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,0 +1,44 @@
+###PETICIONES DE LOS EMPLEADOS
+
+### peticion GET para todos los pedidos
+GET http://localhost:3000/api/empleados
+
+###Peticion para crear nuevo empleado
+POST  http://localhost:3000/api/empleados
+Content-Type: application/json
+
+{
+    "nombre":"Juan",
+    "dni":"0245872",
+    "sexo":"M",
+    "fecha_nac":"1994-06-24",
+    "salario": 1200,
+    "cargo": "Director general",
+    "fk_departamento":2,
+    "jefe_id":2
+}
+
+###Peticion para actualizar un empleado de la BD
+
+PUT  http://localhost:3000/api/empleados
+Content-Type: application/json
+
+{
+    "id":5,
+    "nombre":"Carlos",
+    "dni":"12854658",
+    "fecha_nac": "1995-07-07",
+    "cargo": "Vicepresidente de direccion"
+}
+
+### Peticion para eliminar empleado
+
+DELETE http://localhost:3000/api/empleados
+Content-Type: application/json
+
+{
+    "id":2
+}
+
+###PETICIONES DEL DEPARTAMENTO DE LA BD
+
