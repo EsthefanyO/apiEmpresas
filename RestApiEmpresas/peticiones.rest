@@ -42,3 +42,33 @@ Content-Type: application/json
 
 ###PETICIONES DEL DEPARTAMENTO DE LA BD
 
+###Recuperar todos los departamentos
+GET http://localhost:3000/api/departamento
+
+###Peticion para crear un nuevo departamento
+POST http://localhost:3000/api/departamento
+Content-Type: application/json
+
+{
+    "nombre":"Marketing",
+    "ciudad":"Sevilla"
+}
+
+###Peticion para actualizar un departamento
+PUT http://localhost:3000/api/departamento
+Content-Type: application/json
+
+{
+    "id": 2,
+    "nombre":"Recursos Humanos",
+    "ciudad":"Madrid"
+}
+
+###Peticion para eliminar un departamento
+
+DELETE http://localhost:3000/api/departamento
+Content-Type: application/json
+
+{
+    "id":3
+}
